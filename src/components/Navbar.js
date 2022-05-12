@@ -1,27 +1,33 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="px-32 py-5">
+    <div className="px-32 pt-12">
       <div className="flex justify-between">
         <div>
           <h1 className="font-semibold text-xl">
             <Link to="/">Blockchain Demo</Link>
           </h1>
         </div>
-        <div className="flex gap-x-12">
-          <Link to="/hash" className="text-slate-600 hover:text-slate-900">
+        <div className="flex gap-x-12 text-slate-500 font-normal">
+          <NavLink
+            to="/hash"
+            className={({ isActive }) => (isActive ? "text-black" : "hover:text-black")}
+          >
             Hash
-          </Link>
-          <Link to="/block" className="text-slate-600 hover:text-slate-900">
+          </NavLink>
+          <NavLink
+            to="/block"
+            className={({ isActive }) => (isActive ? "text-black" : "hover:text-black")}
+          >
             Block
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/blockchain"
-            className="text-slate-600 hover:text-slate-900"
+            className={({ isActive }) => (isActive ? "text-black" : "hover:text-black")}
           >
             Blockchain
-          </Link>
+          </NavLink>
         </div>
       </div>
     </div>

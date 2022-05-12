@@ -6,7 +6,7 @@ import Hash from "./pages/Hash";
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#F0F1F4]">
+    <div className="min-h-screen bg-[#F0F1F4] text-slate-600">
       <BrowserRouter>
         <Routes>
           <Route path="" element={<Hash />} />
