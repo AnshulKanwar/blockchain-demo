@@ -1,33 +1,32 @@
 import { useEffect, useState } from "react";
-import sha256 from "crypto-js/sha256";
 
 import Container from "../components/Container";
 import Layout from "../components/Layout";
+import Input from "../components/Input";
+import TextArea from "../components/TextArea";
+import { calculateSHA256 } from "../utils";
 
 const Hash = () => {
   const [data, setData] = useState("");
   const [hash, setHash] = useState("");
 
   useEffect(() => {
-    setHash(sha256(data).toString());
+    setHash(calculateSHA256(data))
   }, [data]);
 
   return (
     <Layout>
-      <Container>
+      <Container title="SHA256 Hash" background="bg-white">
         <div className="flex flex-col gap-y-5">
-          <div className="flex gap-x-10">
+          <div className="grid grid-cols-[1fr_4fr] gap-y-5">
             <span className="font-semibold">Data:</span>
-            <textarea
-              rows="8"
+            <TextArea
               value={data}
               onChange={(e) => setData(e.target.value)}
-              className="bg-slate-100 grow p-3 rounded-lg"
             />
-          </div>
-          <div className="flex gap-x-10">
+
             <span className="font-semibold">Hash:</span>
-            <input type="text" value={hash} readOnly className="bg-slate-100 grow p-3 rounded-lg" />
+            <Input type="text" value={hash} readOnly/>
           </div>
         </div>
       </Container>

@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import Block from "./pages/Block";
 import Blockchain from "./pages/Blockchain";
 import Hash from "./pages/Hash";
