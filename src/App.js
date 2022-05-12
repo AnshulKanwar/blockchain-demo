@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Block from "./pages/Block";
+import Blockchain from "./pages/Blockchain";
+import Hash from "./pages/Hash";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-[#F0F1F4]">
+      <BrowserRouter>
+        <Routes>
+          <Route path="" element={<Hash />} />
+          <Route path="hash" element={<Hash />} />
+          <Route path="block" element={<Block />} />
+          <Route path="blockchain" element={<Blockchain />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
