@@ -11,25 +11,27 @@ const Hash = () => {
   const [hash, setHash] = useState("");
 
   useEffect(() => {
-    setHash(calculateSHA256(data))
+    setHash(calculateSHA256(data));
   }, [data]);
 
   return (
     <Layout>
-      <Container title="SHA256 Hash" background="bg-white">
-        <div className="flex flex-col gap-y-5">
-          <div className="grid grid-cols-[1fr_4fr] gap-y-5">
-            <span className="font-semibold">Data:</span>
-            <TextArea
-              value={data}
-              onChange={(e) => setData(e.target.value)}
-            />
+      <div className="max-w-2xl mx-auto">
+        <Container title="SHA256 Hash" background="bg-white">
+          <div className="flex flex-col gap-y-5">
+            <div className="grid grid-cols-[1fr_4fr] gap-y-5">
+              <span className="font-semibold">Data:</span>
+              <TextArea
+                value={data}
+                onChange={(e) => setData(e.target.value)}
+              />
 
-            <span className="font-semibold">Hash:</span>
-            <Input type="text" value={hash} readOnly/>
+              <span className="font-semibold">Hash:</span>
+              <Input type="text" value={hash} readOnly />
+            </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
     </Layout>
   );
 };

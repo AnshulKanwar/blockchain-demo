@@ -5,7 +5,7 @@ const Navbar = () => {
     <div className="px-32 pt-12">
       <div className="flex justify-between">
         <div>
-          <h1 className="font-semibold text-xl">
+          <h1 className="font-semibold text-2xl">
             <Link to="/">Blockchain Demo</Link>
           </h1>
         </div>
