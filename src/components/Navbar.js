@@ -28,6 +28,12 @@ const Navbar = () => {
           >
             Blockchain
           </NavLink>
+          <NavLink
+            to="/distributed"
+            className={({ isActive }) => (isActive ? "text-black" : "hover:text-black")}
+          >
+            Distributed
+          </NavLink>
         </div>
       </div>
     </div>

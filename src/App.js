@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BlockPage from "./pages/BlockPage";
 import BlockchainPage from "./pages/BlockchainPage";
 import Hash from "./pages/Hash";
+import DistributedBlockchainPage from "./pages/DistributedBlockchainPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path="hash" element={<Hash />} />
           <Route path="block" element={<BlockPage />} />
           <Route path="blockchain" element={<BlockchainPage />} />
+          <Route path="distributed" element={<DistributedBlockchainPage />} />
         </Routes>
       </BrowserRouter>
     </div>

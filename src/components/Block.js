@@ -10,6 +10,7 @@ const Block = ({
   block: { block, nonce, data, hash },
   previousHash,
   setBlock,
+  width,
 }) => {
   const mine = () => {
     let newNonce = 0;
@@ -30,7 +31,7 @@ const Block = ({
   }, [block, nonce, data, previousHash, setBlock]);
 
   return (
-    <div className="min-w-fit">
+    <div className={`min-w-fit ${width || "w-[32rem]"}`}>
       <Container
         background={hash.startsWith("0000") ? "bg-[#C4D4D3]" : "bg-[#D4C3C3]"}
       >

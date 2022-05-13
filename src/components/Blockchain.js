@@ -17,7 +17,7 @@ const Blockchain = () => {
   const [block5, setBlock5] = useState(generateNewBlockState(5, 56265));
 
   return (
-    <div>
+    <div className="overflow-x-scroll">
       <div className="inline-flex gap-x-16 mb-10 mr-20">
         <Block
           block={block1}
