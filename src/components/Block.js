@@ -30,9 +30,8 @@ const Block = ({
   }, [block, nonce, data, previousHash, setBlock]);
 
   return (
-    <div className="w-[30rem] mx-auto">
+    <div className="min-w-fit">
       <Container
-        title="Block"
         background={hash.startsWith("0000") ? "bg-[#C4D4D3]" : "bg-[#D4C3C3]"}
       >
         <div className="flex flex-col gap-y-5">

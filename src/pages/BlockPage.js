@@ -13,10 +13,14 @@ const BlockPage = () => {
 
   return (
     <Layout>
+      <div className="w-[38rem] mx-auto">
+
+      <h1 className="text-3xl font-semibold mb-8">Block</h1>
       <Block
         block={block}
         setBlock={setBlock}
       />
+      </div>
     </Layout>
   );
 };
