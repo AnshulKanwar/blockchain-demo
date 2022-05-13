@@ -12,25 +12,33 @@ const Navbar = () => {
         <div className="flex gap-x-12 text-slate-500 font-normal">
           <NavLink
             to="/hash"
-            className={({ isActive }) => (isActive ? "text-black" : "hover:text-black")}
+            className={({ isActive }) =>
+              isActive ? "text-black" : "hover:text-black"
+            }
           >
             Hash
           </NavLink>
           <NavLink
             to="/block"
-            className={({ isActive }) => (isActive ? "text-black" : "hover:text-black")}
+            className={({ isActive }) =>
+              isActive ? "text-black" : "hover:text-black"
+            }
           >
             Block
           </NavLink>
           <NavLink
             to="/blockchain"
-            className={({ isActive }) => (isActive ? "text-black" : "hover:text-black")}
+            className={({ isActive }) =>
+              isActive ? "text-black" : "hover:text-black"
+            }
           >
             Blockchain
           </NavLink>
           <NavLink
             to="/distributed"
-            className={({ isActive }) => (isActive ? "text-black" : "hover:text-black")}
+            className={({ isActive }) =>
+              isActive ? "text-black" : "hover:text-black"
+            }
           >
             Distributed
           </NavLink>
