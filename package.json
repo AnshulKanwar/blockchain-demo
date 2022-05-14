@@ -1,7 +1,7 @@
 {
   "name": "blockchain-visual-demo",
   "version": "0.1.0",
-  "homepage": "https://k3rnalp4n1c.github.io/blockchain-demo/",
+  "homepage": "https://anshulkanwar.github.io/blockchain-demo/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
