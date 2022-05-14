@@ -3,6 +3,7 @@ import BlockPage from "./pages/BlockPage";
 import BlockchainPage from "./pages/BlockchainPage";
 import Hash from "./pages/Hash";
 import DistributedBlockchainPage from "./pages/DistributedBlockchainPage";
+import TokensPage from "./pages/TokensPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="block" element={<BlockPage />} />
           <Route path="blockchain" element={<BlockchainPage />} />
           <Route path="distributed" element={<DistributedBlockchainPage />} />
+          <Route path="tokens" element={<TokensPage />} />
         </Routes>
       </HashRouter>
     </div>

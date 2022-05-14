@@ -2,14 +2,14 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="px-32 pt-12">
+    <div className="px-16 md:px-32 pt-12">
       <div className="flex justify-between">
         <div>
-          <h1 className="font-semibold text-2xl">
+          <h1 className="font-semibold text-base md:text-3xl">
             <Link to="/">Blockchain Demo</Link>
           </h1>
         </div>
-        <div className="flex gap-x-12 text-slate-500 font-normal">
+        <div className="flex gap-x-8 md:gap-x-10 lg:gap-x-12 text-slate-500 font-normal">
           <NavLink
             to="/hash"
             className={({ isActive }) =>
@@ -41,6 +41,14 @@ const Navbar = () => {
             }
           >
             Distributed
+          </NavLink>
+          <NavLink
+            to="/tokens"
+            className={({ isActive }) =>
+              isActive ? "text-black" : "hover:text-black"
+            }
+          >
+            Tokens
           </NavLink>
         </div>
       </div>

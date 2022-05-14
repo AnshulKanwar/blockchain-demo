@@ -5,9 +5,10 @@ import Container from "./Container";
 import Button from "./Button";
 import Input from "./Input";
 import TextArea from "./TextArea";
+import Token from "./Token";
 
 const Block = ({
-  block: { block, nonce, data, hash },
+  block: { block, nonce, transactions, data, hash },
   previousHash,
   setBlock,
   width,
@@ -16,19 +17,26 @@ const Block = ({
     let newNonce = 0;
 
     while (
-      !calculateSHA256(block, newNonce, data, previousHash).startsWith("0000")
+      !calculateSHA256(block, newNonce, transactions || data, previousHash).startsWith("0000")
     ) {
       newNonce = Math.floor(Math.random() * 1000000 + 1);
     }
     setBlock((prev) => ({ ...prev, nonce: newNonce }));
   };
 
+  const handleChange = (value, idx) => {
+    let newTxs = [...transactions]
+    console.log(newTxs[idx].value)
+    newTxs[idx].value = value
+    setBlock(prev => ({...prev, transactions: newTxs}))
+  }
+
   useEffect(() => {
     setBlock((prev) => ({
       ...prev,
-      hash: calculateSHA256(block, nonce, data, previousHash),
+      hash: calculateSHA256(block, nonce, transactions || data, previousHash),
     }));
-  }, [block, nonce, data, previousHash, setBlock]);
+  }, [block, nonce, transactions, data, previousHash, setBlock]);
 
   return (
     <div className={`min-w-fit ${width || "w-[32rem]"}`}>
@@ -36,7 +44,7 @@ const Block = ({
         background={hash.startsWith("0000") ? "bg-[#C4D4D3]" : "bg-[#D4C3C3]"}
       >
         <div className="flex flex-col gap-y-5">
-          <div className="grid grid-cols-[1fr_4fr] gap-y-5 justify-items-start">
+          <div className="grid grid-cols-[1fr_5fr] gap-y-5 justify-items-start">
             <span className="font-semibold">Block:</span>
             <div className="flex w-full">
               <span className="bg-slate-200 px-5 py-2 rounded-l-lg">#</span>
@@ -57,13 +65,26 @@ const Block = ({
               }
             />
 
-            <span className="font-semibold">Data:</span>
-            <TextArea
-              value={data}
-              onChange={(e) =>
-                setBlock((prev) => ({ ...prev, data: e.target.value }))
-              }
-            />
+            {transactions ? (
+              <>
+                <span className="font-semibold">Tx</span>
+                <div className="flex flex-col gap-y-0.5">
+                  {transactions.map((tx, idx) => (
+                    <Token key={idx} id={idx} tx={tx} handleChange={handleChange}/>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <>
+                <span className="font-semibold">Data:</span>
+                <TextArea
+                  value={data}
+                  onChange={(e) =>
+                    setBlock((prev) => ({ ...prev, data: e.target.value }))
+                  }
+                />
+              </>
+            )}
 
             {previousHash && (
               <>
