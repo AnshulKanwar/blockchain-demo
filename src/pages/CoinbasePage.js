@@ -1,27 +1,27 @@
 import Layout from "../components/Layout"
 
-import TokensBlock from "../components/TokensBlock"
+import CoinbaseBlock from "../components/CoinbaseBlock"
 
-const TokensPage = () => {
+const CoinbasePage = () => {
   return (
     <Layout>
-      <h1 className="text-3xl font-semibold mb-8">Tokens</h1>
+      <h1 className="text-3xl font-semibold mb-8">Coinbase Transactions</h1>
       <div>
         <div>
           <h2 className="text-xl font-semibold mb-8">Peer A</h2>
-          <TokensBlock />
+          <CoinbaseBlock />
         </div>
         <div>
           <h2 className="text-xl font-semibold mb-8">Peer B</h2>
-          <TokensBlock />
+          <CoinbaseBlock />
         </div>
         <div>
           <h2 className="text-xl font-semibold mb-8">Peer C</h2>
-          <TokensBlock />
+          <CoinbaseBlock />
         </div>
       </div>
     </Layout>
   )
 }
 
-export default TokensPage
+export default CoinbasePage

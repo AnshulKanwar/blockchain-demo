@@ -9,7 +9,7 @@ const Navbar = () => {
             <Link to="/">Blockchain Demo</Link>
           </h1>
         </div>
-        <div className="flex gap-x-8 md:gap-x-10 lg:gap-x-12 text-slate-500 font-normal">
+        <div className="flex items-center gap-x-8 md:gap-x-10 lg:gap-x-12 text-slate-500 font-normal">
           <NavLink
             to="/hash"
             className={({ isActive }) =>
@@ -49,6 +49,14 @@ const Navbar = () => {
             }
           >
             Tokens
+          </NavLink>
+          <NavLink
+            to="/coinbase"
+            className={({ isActive }) =>
+              isActive ? "text-black" : "hover:text-black"
+            }
+          >
+            Coinbase
           </NavLink>
         </div>
       </div>
