@@ -63,31 +63,26 @@ const Blockchain = () => {
           block={block1}
           setBlock={setBlock1}
           previousHash={"0".repeat(64)}
-          width="w-[50rem]"
         />
         <Block
           block={block2}
           setBlock={setBlock2}
           previousHash={block1.hash}
-          width="w-[50rem]"
         />
         <Block
           block={block3}
           setBlock={setBlock3}
           previousHash={block2.hash}
-          width="w-[50rem]"
         />
         <Block
           block={block4}
           setBlock={setBlock4}
           previousHash={block3.hash}
-          width="w-[50rem]"
         />
         <Block
           block={block5}
           setBlock={setBlock5}
           previousHash={block4.hash}
-          width="w-[50rem]"
         />
       </div>
     </div>

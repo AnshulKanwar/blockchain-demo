@@ -12,7 +12,6 @@ const Block = ({
   block: { block, nonce, coinbase, transactions, data, hash },
   previousHash,
   setBlock,
-  width,
 }) => {
   const mine = () => {
     let newNonce = 0;
@@ -52,11 +51,11 @@ const Block = ({
   }, [block, nonce, coinbase, transactions, data, previousHash, setBlock]);
 
   return (
-    <div className={`${width || "w-[40rem]"}`}>
+    <div className="w-[42rem]">
       <Container
         background={hash.startsWith("0000") ? "bg-[#C4D4D3]" : "bg-[#D4C3C3]"}
       >
-        <div className="grid grid-cols-[minmax(80px,_1fr)_6fr] gap-x-10 gap-y-5 justify-items-start">
+        <div className="grid grid-cols-[minmax(80px,_1fr)_6fr] gap-5 justify-items-start">
           <span className="font-semibold justify-self-end">Block:</span>
           <div className="flex w-full">
             <span className="bg-slate-200 px-5 py-2 rounded-l-lg">#</span>
