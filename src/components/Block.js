@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { calculateSHA256 } from "../utils";
+import { useEffect, useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 
 import Container from "./Container";
@@ -8,31 +7,17 @@ import Input from "./Input";
 import TextArea from "./TextArea";
 import Token from "./Token";
 
+import { calculateSHA256, mine } from "../utils";
+
 const Block = ({
   block: { block, nonce, coinbase, transactions, data, hash },
   previousHash,
   setBlock,
 }) => {
-  const mine = () => {
-    let newNonce = 0;
-
-    while (
-      !calculateSHA256(
-        block,
-        newNonce,
-        coinbase || "",
-        transactions || data,
-        previousHash || ""
-      ).startsWith("0000")
-    ) {
-      newNonce = Math.floor(Math.random() * 1000000 + 1);
-    }
-    setBlock((prev) => ({ ...prev, nonce: newNonce }));
-  };
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (value, idx) => {
     let newTxs = [...transactions];
-    console.log(newTxs[idx].value);
     newTxs[idx].value = value;
     setBlock((prev) => ({ ...prev, transactions: newTxs }));
   };
@@ -49,6 +34,10 @@ const Block = ({
       ),
     }));
   }, [block, nonce, coinbase, transactions, data, previousHash, setBlock]);
+
+  useEffect(() => {
+
+  })
 
   return (
     <div className="w-[42rem]">
@@ -144,7 +133,23 @@ const Block = ({
           </>
 
           <div></div>
-          <Button onClick={mine}>Mine</Button>
+          <Button
+            onClick={async () => {
+              setIsLoading(true);
+              const newNonce = await mine(
+                block,
+                coinbase,
+                transactions,
+                data,
+                previousHash,
+                setBlock
+              );
+              setBlock((prev) => ({ ...prev, nonce: newNonce }));
+              setIsLoading(false);
+            }}
+          >
+            {isLoading ? "Loading..." : "Mine"}
+          </Button>
         </div>
       </Container>
     </div>
