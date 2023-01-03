@@ -32,10 +32,10 @@ export const mine = (block, coinbase, transactions, data, previousHash) => {
           previousHash || ""
         ).startsWith("0000")
       ) {
-        newNonce = Math.floor(Math.random() * 100000 + 1);
+        newNonce = Math.floor(Math.random() * 1000000 + 1);
       }
 
       return resolve(newNonce);
-    }, 0);
+    }, 100);
   });
 };
